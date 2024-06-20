@@ -29,3 +29,4 @@ C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTic
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.genruntimeconfig.cache
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\ref\TrackingTicketSystem.dll
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.sourcelink.json
+C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.csproj.AssemblyReference.cache

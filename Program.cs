@@ -12,7 +12,26 @@ builder.Services.AddDbContext<ApplicationDbContext>( options => options.UseSqlSe
 
     builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
+    services.AddCors(options =>
+    {
+        options.AddDefaultPolicy(builder =>
+        {
+            builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
+        });
+    });
 
+    services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AddAuthenticationScheme;
+        options.DefaultChallengScheme = JwtBearerDefaults.AddAuthenticationScheme;
+    }).AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        {
+
+        };
+    });
+    
 
 
 
@@ -42,10 +61,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseCors();
 app.UseSpaStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 

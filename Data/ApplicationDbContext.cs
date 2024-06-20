@@ -9,4 +9,11 @@ public class ApplicationDbContext: DbContext
 
     }
     public DbSet<Bug> Bugs { get; set;}
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Customize the EF model here if needed
+            // e.g., modelBuilder.Entity<YourEntity>().ToTable("YourTableName");
+        }
 }
