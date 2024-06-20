@@ -13,7 +13,6 @@ C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTic
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.RazorAssemblyInfo.cache
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.RazorAssemblyInfo.cs
-C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.sourcelink.json
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\staticwebassets\msbuild.TrackingTicketSystem.Microsoft.AspNetCore.StaticWebAssets.props
