@@ -1,34 +1,49 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using TicketTrackingSystem.Models;
-using Microsoft.AspNetCore.Identity;
+
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Threading.Tasks;
+using TrackingTicketSystem.Data;
+ // Ensure this using directive is present
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ApplicationDbContext>( options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-    builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
 
-    builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews();
 
-    services.AddCors(options =>
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
     {
-        options.AddDefaultPolicy(builder =>
-        {
-            builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod();
-        });
+        builder.WithOrigins("http://localhost:3000")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
     });
+});
 
-//ADD JWT Tokens
-    var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
+// Configure JWT Tokens
+var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
+})
+.AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false;
     options.SaveToken = true;
@@ -43,6 +58,7 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
+
 // Build the app
 var app = builder.Build();
 
@@ -50,6 +66,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    app.UseWebAssemblyDebugging(); // Ensure ASP.NET Core 5.0 or higher and correct packages
 }
 else
 {
@@ -58,17 +75,24 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-app.UseCors();
-app.UseAuthentication();
-app.UseAuthorization();
+app.UseStaticFiles(); // Serve static files (wwwroot)
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.MapControllers();
+// Configure ASP.NET Core to serve React.js frontend
+app.MapWhen(
+    context => !context.Request.Path.StartsWithSegments("/api"),
+    builder =>
+    {
+        builder.UseStaticFiles();
+        builder.UseRouting();
+        builder.UseCors();
+        builder.UseAuthentication();
+        builder.UseAuthorization();
+        builder.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+            endpoints.MapFallbackToFile("index.html"); // Serve index.html for other requests
+        });
+    });
 
 // Seed roles and users
 using (var scope = app.Services.CreateScope())
@@ -78,7 +102,7 @@ using (var scope = app.Services.CreateScope())
     var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
     await CreateRolesAndUsers(roleManager, userManager, builder.Configuration);
 }
-/
+
 app.Run();
 
 async Task CreateRolesAndUsers(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager, IConfiguration configuration)

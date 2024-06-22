@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrackingTicketSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0291a059aeca6fd105c4e097b098d8cefb4a583d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fd03344b3253f31e2226ec7bfe098ee27972429")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrackingTicketSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrackingTicketSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
