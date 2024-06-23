@@ -2,20 +2,39 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Threading.Tasks;
 using TrackingTicketSystem.Data;
- // Ensure this using directive is present
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Log the environment to ensure the correct configuration is being used
+Console.WriteLine($"Environment: {builder.Environment.EnvironmentName}");
+
+// Retrieve and log the connection string to ensure it's being read correctly
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine($"Connection String: {connectionString}");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 28)), mySqlOptions =>
+    {
+        mySqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(60),
+            errorNumbersToAdd: new List<int> { 1205 });
+    });
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.EnableSensitiveDataLogging(); // Enable sensitive data logging only in development
+        options.LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information);
+    }
+});
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
@@ -77,6 +96,11 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles(); // Serve static files (wwwroot)
 
+app.UseRouting();
+app.UseCors(); // Add CORS middleware here
+app.UseAuthentication(); // Add authentication middleware here
+app.UseAuthorization(); // Add authorization middleware here
+
 // Configure ASP.NET Core to serve React.js frontend
 app.MapWhen(
     context => !context.Request.Path.StartsWithSegments("/api"),
@@ -84,9 +108,6 @@ app.MapWhen(
     {
         builder.UseStaticFiles();
         builder.UseRouting();
-        builder.UseCors();
-        builder.UseAuthentication();
-        builder.UseAuthorization();
         builder.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();

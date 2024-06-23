@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\TrackingTicketSystem.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\.babelrc",
+      "PackagePath": "staticwebassets\\.babelrc"
+    },
+    {
       "Id": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\js\\CreateBugComponent.js",
+      "PackagePath": "staticwebassets\\js\\CreateBugComponent.js"
     },
     {
       "Id": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\js\\site.js",

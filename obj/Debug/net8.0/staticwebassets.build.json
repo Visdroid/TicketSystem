@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jF8+KcBszr2sRmguHskWds9iObnPfG1PNay/qGQ2Mac=",
+  "Hash": "MH5hLMxCwoS1oBNjmZ2AdfAW9L/Qeh7I0s8hLi6FHTg=",
   "Source": "TrackingTicketSystem",
   "BasePath": "_content/TrackingTicketSystem",
   "Mode": "Default",
@@ -1195,6 +1195,25 @@
       "OriginalItemSpec": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\TrackingTicketSystem.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\.babelrc",
+      "SourceId": "TrackingTicketSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\",
+      "BasePath": "_content/TrackingTicketSystem",
+      "RelativePath": ".babelrc",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\.babelrc"
+    },
+    {
       "Identity": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\css\\site.css",
       "SourceId": "TrackingTicketSystem",
       "SourceType": "Discovered",
@@ -1231,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\js\\CreateBugComponent.js",
+      "SourceId": "TrackingTicketSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\",
+      "BasePath": "_content/TrackingTicketSystem",
+      "RelativePath": "js/CreateBugComponent.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\CreateBugComponent.js"
     },
     {
       "Identity": "C:\\Users\\Aldrin-PC\\Desktop\\Job\\TrackingTicketSystem\\wwwroot\\js\\site.js",
