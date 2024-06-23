@@ -1,0 +1,43 @@
+/* src/components/CreateBug.css */
+.create-bug {
+    padding: 20px;
+  }
+  
+  .create-bug form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-bug label {
+    margin-top: 10px;
+  }
+  
+  .create-bug input,
+  .create-bug textarea {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .create-bug button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .create-bug button:hover {
+    background-color: #45a049;
+  }
+  
+  .success-message {
+    color: green;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }

@@ -1,0 +1,8 @@
+/* src/components/BugDetail.css */
+.bug-detail {
+    padding: 20px;
+  }
+  
+  .bug-detail h2 {
+    margin-top: 0;
+  }

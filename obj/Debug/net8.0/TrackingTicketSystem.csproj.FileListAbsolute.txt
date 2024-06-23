@@ -168,3 +168,5 @@ C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Microsoft.O
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\clientapp\build\asset-manifest.json
+C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\clientapp\build\manifest.json

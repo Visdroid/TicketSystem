@@ -1,0 +1,32 @@
+/* src/components/BugList.css */
+.bug-list {
+    padding: 20px;
+  }
+  
+  .bug-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .bug-table th,
+  .bug-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .bug-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .bug-table td a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .bug-table td a:hover {
+    text-decoration: underline;
+  }

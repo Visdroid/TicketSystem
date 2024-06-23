@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrackingTicketSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+194b7cd85759bbabb708434c5f0599635aafa3d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97443121c1818d2a35c8f0b481852cc6490a3a13")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrackingTicketSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrackingTicketSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
