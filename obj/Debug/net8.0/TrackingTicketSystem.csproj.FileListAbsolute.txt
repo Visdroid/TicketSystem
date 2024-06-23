@@ -164,3 +164,7 @@ C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\refint\Trac
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.pdb
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\TrackingTicketSystem.genruntimeconfig.cache
 C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\obj\Debug\net8.0\ref\TrackingTicketSystem.dll
+C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Aldrin-PC\Desktop\Job\TrackingTicketSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

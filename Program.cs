@@ -6,6 +6,7 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 using System.Threading.Tasks;
 using TrackingTicketSystem.Data;
@@ -78,14 +79,51 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Add Swagger services
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TrackingTicketSystem API", Version = "v1" });
+    // Add JWT support in Swagger
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+    {
+        new OpenApiSecurityScheme
+        {
+            Reference = new OpenApiReference
+            {
+                Type = ReferenceType.SecurityScheme,
+                Id = "Bearer"
+            }
+        },
+        Array.Empty<string>()
+    }
+    });
+});
+
+
 // Build the app
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//This is where the middleware is e,g swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.UseWebAssemblyDebugging(); // Ensure ASP.NET Core 5.0 or higher and correct packages
+    app.UseSwagger();
+    app.UseSwaggerUI(c => 
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "TrackingTicketSystem API v1");
+        c.RoutePrefix = string.Empty; // Set Swagger UI at the root
+    });
 }
 else
 {
